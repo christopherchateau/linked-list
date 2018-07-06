@@ -10,23 +10,28 @@ body {
 
 h1 {
   text-align: center;
+  font-size: 5rem;
+  font-weight: 800;
 
 }
 
 section {
-  height: 100%;
+  padding-top: 30%;
 }
 
 input {
   display: block;
-  width: 80%;
+  width: 90%;
+  height: 3rem;
   margin: 2rem auto;
 }
 
 button {
   display: block;
-  width: 80%;
+  height: 3rem;
+  width: 90%;
   margin: 0 auto;
+  background-color: #FFC107;
 }
 
 .wrapper {
@@ -39,11 +44,18 @@ button {
   background-color: #455A64;
   color: #FFFFFF;
   grid-column: 1;
-  grid-row: 1;
 }
 
-.bookmark-list {
+.bookmark-section {
   background-color: #CFD8DC;
   grid-column: 2;
-  grid-row: 1;
+}
+
+.icon {
+  height: 7rem;
+  width: 7rem;
+  position: relative;
+  top: 30px;
+
+
 }
