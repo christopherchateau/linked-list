@@ -4,6 +4,46 @@
   padding: 0;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 h1 {
-  
+  text-align: center;
+
+}
+
+section {
+  height: 100%;
+}
+
+input {
+  display: block;
+  width: 80%;
+  margin: 2rem auto;
+}
+
+button {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr, 1fr;
+  height: 100vh;
+}
+
+.input-section {
+  background-color: #455A64;
+  color: #FFFFFF;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.bookmark-list {
+  background-color: #CFD8DC;
+  grid-column: 2;
+  grid-row: 1;
 }
