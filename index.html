@@ -10,12 +10,19 @@
         <h1>Linked 
           <img class="icon" src="linked-list-logo.svg" />
             List</h1>
-        <input type="" name="" placeholder="Website title">
-        <input type="" name="" placeholder="Website URL">
-        <button>Enter</button>
-      </section> 
+        <input type="text" name="Title" placeholder="Website title" class="title-input input">
+        <input type="url" required pattern=".*\.*\..*" placeholder="Website URL" class="url-input input">
+        <button class="enter" disabled>Enter</button>
+      </section>
+        
       <section class="bookmark-section">
-        <h1>Hello World</h1>
+        <article class="article">
+          <h3 class="website-title"></h3>
+          <h6 class="website-url"></h6>
+        
+          <p class="read">Read</p>
+          <p class="delete">Delete</p>
+        </article>
       </section>
     </div>
   </body>
