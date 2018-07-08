@@ -4,51 +4,42 @@ var urlInput = document.querySelector(".url-input");
 var websiteTitle = document.querySelector(".website-title")
 var websiteURL = document.querySelector(".website-url")
 var enter = document.querySelector(".enter");
+var bookmarks = document.querySelector(".bookmark-section");
 
-
-// document.body.onload = addElement;
 
 function addElement(){
 
-	document.body.onload = addElement;
+	var newH2 = document.createElement("h2");
+	var newH4 = document.createElement("h4");
+	var newDiv = document.createElement("article");
 
-	var newDiv = document.createElement("div");
+	newDiv.style.width = '25px';
+	newDiv.style.color = "red";
+	newDiv.style.background = "white"; 
+	newDiv.style.width = "300px";
+	newDiv.style.margin = "0 1em";
+	newDiv.style.border = "1px solid #607d8b";
+	newH4.style.borderBottom = "1px solid red";
+	newH2.style.borderBottom = "1px solid #cfd8dc";
+	newH2.style.padding = "1em";
+	newH4.style.padding = "2em";
+	newH2.style.margin = "1rem 1rem";
+	newH4.style.margin = "1rem 1rem";
 
 	var input2 = document.createTextNode(urlInput.value);
 	var input1 = document.createTextNode(titleInput.value);
 
-	newDiv.appendChild(input1);
-	newDiv.appendChild(input2);
+	newH2.appendChild(input1);
+	newH4.appendChild(input2);
 
-	var currentDiv = document.getElementById(".article");
+	newDiv.appendChild(newH2);
+	newDiv.appendChild(newH4);
 
-	document.body.insertBefore(newDiv, currentDiv);
-
+	var currentDiv = document.getElementById("h1");
+	bookmarks.insertBefore(newDiv, currentDiv);
 }
 
 enter.addEventListener('click', addElement);
-
-
-// titleInput = websiteTitle.innerText
-	// websiteTitle.innerText = titleInput.value;
-	// websiteURL.innerText = urlInput.value;
-
-	// websiteTitle.append(titleInput.value);
-	// websiteURL.append(urlInput.value);
-	// article.set(".input");
-
-	// var bookmarks = document.querySelector('.bookmark-section');
-
-	// var article = document.createElement("ARTICLE");
-
-	// document.bookmarks.appendChild(article);
-
-	// var newCard = document.createElement("ARTICLE");
-	// var newH1 = document.createTextNode('asdf');
-	// newCard.appendChild(newH1);
-	// var bookmarkSection = document.querySelector(".article");
-	// document.body.insertBefore(newCard, bookmarkSection);
-
 
 document.addEventListener('keyup', function(){
 

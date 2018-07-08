@@ -6,6 +6,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
+  background-color: blue;
 }
 
 h1 {
@@ -13,7 +14,7 @@ h1 {
   font-size: 5rem;
   font-weight: 800;
 }
-article{
+/*article{
   display: block;
   margin: 0 auto;
   border: 1px solid #607d8b;
@@ -22,19 +23,17 @@ article{
   display: table;
   clear: both;
   width: 90%;
-}
-.website-title{
+}*/
+/*.website-title{
   color: #455a64;
   margin: 1rem 1rem;
   border-bottom: 1px solid #cfd8dc;
 }
 .website-url{
-/*  padding: 1em;
-*/  color: #607d8b;
+  color: #607d8b;
   border-bottom: 1px solid #cfd8dc;
   margin: 1rem 1rem;
-/*  margin: 1rem;
-*/}
+}*/
 button{
 
 }
@@ -90,6 +89,7 @@ button {
 .bookmark-section {
   background-color: #CFD8DC;
   grid-column: 2;
+  padding: 1em;
 }
 
 .icon {
