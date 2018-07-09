@@ -31,7 +31,7 @@ h4 {
 
 h5 {
   font-size: 1.5rem;
-  margin-left: 2rem;
+  margin-left: 3rem;
   margin-top: 2rem;
 }
 
@@ -82,6 +82,10 @@ article {
   color: #455A64;
   display: block;
   font-size: 1rem;
+}
+
+.read {
+  color: red;
 }
 
 

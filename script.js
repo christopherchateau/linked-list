@@ -38,7 +38,6 @@ function addElement(e){
 	readButton.classList.add("read-button");
 	readButton.id = counter;
 	deleteButton.classList.add("delete-button");
-	readButton.id = counter;
 
 	newCard.appendChild(newCardTitle);
 	newCard.appendChild(newCardUrl);
@@ -50,9 +49,19 @@ function addElement(e){
 	bookmarks.insertBefore(newCard, prevCard);
 
 	numOfLinks.innerText = `Number of Links: ${counter}`;
+
 	deleteButton.addEventListener('click', function(){
-			bookmarks.removeChild(newCard);
-		});
+		bookmarks.removeChild(newCard);
+	});
+
+	readButton.addEventListener('click', function(){
+		// var document.querySelector(counter)
+		if (readButton.classList.contains('read')) {
+			readButton.classList.add("read")
+		}
+
+	});
+
 }
 
 enter.addEventListener('click', addElement);
