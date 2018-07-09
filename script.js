@@ -5,27 +5,26 @@ var websiteTitle = document.querySelector(".website-title")
 var websiteURL = document.querySelector(".website-url")
 var enter = document.querySelector(".enter-button");
 var bookmarks = document.querySelector(".bookmark-section");
-var deleteButton;
+var numOfLinks = document.querySelector('.number-of-links');
+// var deleteButton = document.querySelector(".delete-button");
 
-
-var prevCard;
+var counter = 0;
 
 // deleteButton.addEventListener('click', function(){
 
 // 	alert("Hey!");
 
-
 // });
-
 
 function addElement(e){
 	e.preventDefault();
+	counter++;
 
 	var newCard = document.createElement("article");
 	var newCardTitle = document.createElement("h2");
 	var newCardUrl = document.createElement("h4");
 	var readButton = document.createElement("button");
-	deleteButton = document.createElement("button");
+	var deleteButton = document.createElement("button");
 
 	var input1 = document.createTextNode(titleInput.value);
 	var input2 = document.createTextNode(urlInput.value);
@@ -37,7 +36,9 @@ function addElement(e){
 	deleteButton.innerText = 'Delete';
 
 	readButton.classList.add("read-button");
+	readButton.id = counter;
 	deleteButton.classList.add("delete-button");
+	readButton.id = counter;
 
 	newCard.appendChild(newCardTitle);
 	newCard.appendChild(newCardUrl);
@@ -47,6 +48,11 @@ function addElement(e){
 
 	var prevCard = document.querySelector("article");
 	bookmarks.insertBefore(newCard, prevCard);
+
+	numOfLinks.innerText = `Number of Links: ${counter}`;
+	deleteButton.addEventListener('click', function(){
+			bookmarks.removeChild(newCard);
+		});
 }
 
 enter.addEventListener('click', addElement);

@@ -29,15 +29,21 @@ h4 {
   padding-bottom: 1rem;
 }
 
+h5 {
+  font-size: 1.5rem;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
 h2, h4 {
   border-bottom: 2px solid #CFD8DC;
-  margin: 1rem;
+  margin: 1rem 2rem;
   font-weight: 400;
 }
 
 article {
   display: block;
-  margin: 2rem auto;
+  margin: 1rem auto 2rem auto;
   border: 3px solid #607D8B;
   background-color: #ffffff;
   width: 95%;
@@ -63,17 +69,19 @@ article {
 
 .read-button {
   float: left;
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 .delete-button {
   float: right;
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 .read-button, .delete-button {
   border: none;
+  color: #455A64;
   display: block;
+  font-size: 1rem;
 }
 
 
@@ -127,9 +135,15 @@ input {
 @media (max-width: 800px) {
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin: 0 1rem;
     padding-top: 1rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+    margin-left: 2rem;
+    margin-top: 1.5rem;
   }
 
   input {
@@ -138,19 +152,15 @@ input {
 
   .wrapper {
     grid-auto-columns: 1fr;
-    grid-auto-rows: 40vh 60vh;
+    grid-auto-rows: 45vh 55vh;
   }
 
   .input-section {
     grid-column: 1;
     grid-row: 1;
-    /*position: fixed;*/
-    /*height: 40vh;*/
-
   }
 
   .bookmark-section {
-    /*height: 70vh;*/
     grid-column: 1;
     grid-row: 2;
   }
