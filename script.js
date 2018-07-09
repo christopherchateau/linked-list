@@ -18,8 +18,13 @@ var counter = 0;
 
 function addElement(e){
 	e.preventDefault();
-	counter++;
 
+	if (titleInput.value === '' || urlInput.value === '') {
+		alert('Please fill out both fields!');
+		return;
+	}
+
+	counter++;
 	var newCard = document.createElement("article");
 	var newCardTitle = document.createElement("h2");
 	var newCardUrl = document.createElement("h4");
@@ -44,31 +49,37 @@ function addElement(e){
 	newCard.appendChild(readButton);
 	newCard.appendChild(deleteButton);
 
-
 	var prevCard = document.querySelector("article");
 	bookmarks.insertBefore(newCard, prevCard);
 
-	numOfLinks.innerText = `Number of Links: ${counter}`;
-
 	deleteButton.addEventListener('click', function(){
 		bookmarks.removeChild(newCard);
+		counter--;
+		updateLinkCount();
 	});
 
 	readButton.addEventListener('click', function(){
-		// var document.querySelector(counter)
-		if (readButton.classList.contains('read')) {
-			readButton.classList.add("read")
+
+		if (!readButton.classList.contains('read')) {
+			readButton.classList.add("read");
 		}
-
+		else {
+			readButton.classList.remove("read");
+		}
 	});
-
+	updateLinkCount();
 }
+
+function updateLinkCount() {
+	numOfLinks.innerText = `Number of Links: ${counter}`;
+}
+
 
 enter.addEventListener('click', addElement);
 
 document.addEventListener('keyup', function(){
 
-	if (titleInput.value || urlInput.value){
+	if (titleInput.value && urlInput.value){
 		enter.disabled = false;
 	}
 	else {
