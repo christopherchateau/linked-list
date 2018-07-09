@@ -42,30 +42,46 @@ article {
   background-color: #ffffff;
   width: 95%;
   color: #455A64;
+  height: 13rem;
 }
 
-button{
+.enter-button{
   font-size: 1.2rem;
   font-weight: 800;
+  color: white;
+  display: block;
+  height: 3rem;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #FFC107;
 }
 
-button:disabled{
+.enter-button:disabled{
   background-color: #ffd773;
   color: white;
 }
 
-.read {
-/*  padding: 1em;
-*/  font-size: xx-small;
+.read-button {
   float: left;
-  margin: 1rem 1rem;
+  margin-left: 1rem;
 }
-.delete {
-/*  padding: 1em 1em .5em 1em;
-*/  font-size: xx-small;
+
+.delete-button {
   float: right;
-  margin: 1rem 1rem;
+  margin-right: 1rem;
 }
+
+.read-button, .delete-button {
+  border: none;
+  display: block;
+}
+
+
+/*.read-button:after{
+  content: '';
+  display: table;
+  clear: both;
+}*/
 
 input {
   display: block;
@@ -74,15 +90,6 @@ input {
   margin: 3rem auto;
   font-size: 2rem;
   padding-left: .5rem;
-}
-
-button {
-  color: white;
-  display: block;
-  height: 3rem;
-  width: 90%;
-  margin: 0 auto;
-  background-color: #FFC107;
 }
 
 .wrapper {
