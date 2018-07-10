@@ -8,6 +8,15 @@ var numOfLinksRead = document.querySelector('.number-of-links-read');
 var cardCounter = 0;
 var readCounter = 0;
 
+// var allCards = [];
+
+
+function verifyUrl() {
+	if (!urlInput.match()){
+		alert('asdf');
+	}
+}
+
 enterButton.addEventListener('click', function(e) {
 	e.preventDefault();
 
@@ -78,8 +87,14 @@ clearButton.addEventListener('click', function(e) {
 	cardCounter = 0;
 	readCounter = 0;
 	
-	var allCards = document.querySelector('.bookmark-section');
-	allCards.innerHTML = '';
+	allCards = document.querySelectorAll('article');
+	console.log(allCards);
+
+	for (var i = 0; i < allCards.length; i++) {
+		if (allCards[i].innerHTML.match(' read')) {
+			allCards[i].parentNode.removeChild(allCards[i]);
+		}
+	}
 	
 	clearButton.disabled = true;
 	updateLinkCount();

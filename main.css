@@ -4,8 +4,10 @@
   padding: 0;
 }
 
+html,
 body {
   font-family: 'Open Sans', sans-serif;
+  height: 100%;
 }
 
 h1 {
@@ -76,14 +78,14 @@ article {
   color: #FFFFFF;
   grid-column: 1;
   height: 100vh;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .bookmark-section {
   background-color: #CFD8DC;
   grid-column: 2;
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
   padding: 1em;
 }
 
