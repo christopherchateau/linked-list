@@ -16,10 +16,11 @@ aside{
 
 h1 {
   font-size: 5rem;
-  margin: 0 2rem 0 2rem;
+  margin: 50px 2rem 0 2rem;
   text-align: center;
+}
   
-h1.bookmarks-label{
+h1.bookmarks-label {
   margin: 25% 0px;
   text-align: center;
   color: white;

@@ -29,6 +29,8 @@ function createNewBookmark(e) {
 		return;
 	}
 
+	bookmarks.innerText = '';
+
 	createBookmarkTemplate();
 	addClassToButtons();
 	noInputAlert();
@@ -122,7 +124,7 @@ function noInputAlert() {
 
 function updateLinkCount() {
 	numOfLinks.innerText = `Number of Links: ${cardCounter}`;
-  bookmarksLabel = document.querySelector('.bookmarks-label');
+  var bookmarksLabel = document.querySelector('.bookmarks-label');
 
 	if (cardCounter > 0) {
 		bookmarksLabel.innerHTML = "";
@@ -147,4 +149,4 @@ function clearInputFields() {
 
 function disableEnterButton() {
 	enterButton.disabled = true;
- bookmarkslabel
+}
