@@ -8,12 +8,9 @@ var numOfLinksRead = document.querySelector('.number-of-links-read');
 var cardCounter = 0;
 var readCounter = 0;
 
-
-
 enterButton.addEventListener('click', createNewBookmark);
 clearButton.addEventListener('click', clearReadBookmarks);
 document.addEventListener('keyup', enterButtonToggleChecker);
-
 
 function createNewBookmark(e) {
 	e.preventDefault();
@@ -125,6 +122,13 @@ function noInputAlert() {
 
 function updateLinkCount() {
 	numOfLinks.innerText = `Number of Links: ${cardCounter}`;
+  bookmarksLabel = document.querySelector('.bookmarks-label');
+
+	if (cardCounter > 0) {
+		bookmarksLabel.innerHTML = "";
+	} else{
+		bookmarksLabel.innerHTML = "Add Bookmarks";
+	}
 }
 
 function updateReadCount() {
@@ -143,4 +147,4 @@ function clearInputFields() {
 
 function disableEnterButton() {
 	enterButton.disabled = true;
-}
+ bookmarkslabel
