@@ -8,8 +8,6 @@ var numOfLinksRead = document.querySelector('.number-of-links-read');
 var cardCounter = 0;
 var readCounter = 0;
 
-
-
 enterButton.addEventListener('click', createNewBookmark);
 clearButton.addEventListener('click', clearReadBookmarks);
 document.addEventListener('keyup', enterButtonToggleChecker);
@@ -130,12 +128,10 @@ function updateLinkCount() {
 
 	if (cardCounter > 0) {
 		bookmarksLabel.innerHTML = "";
-		bookmarksLabel.visible = false;
-		clearButton.disabled = false;
-	} else if(cardCounter == 0){
+	} else{
 		bookmarksLabel.innerHTML = "Add Bookmarks";
-		clearButton.disabled = true;
 	}
+	console.log("Bookmarks label:" + bookmarksLabel.innerHTML);
 }
 
 
