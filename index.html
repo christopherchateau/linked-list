@@ -3,32 +3,35 @@
   <head>
     <title>Linked List</title>
     <link href="main.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" 
+          rel="stylesheet">
     <meta name="viewport" content="width=device-width">
   </head>
   <body>
     <div class="wrapper">
       <section class="input-section">
-        <h1>Linked 
-          <img class="icon" src="linked-list-logo.svg" />
-            List
+        <h1>
+          Linked 
+          <img src="linked-list-logo.svg"/>
+          List
         </h1>
-        <input type="text" name="Title" placeholder="Website title" class="title-input input">
-        <input type="address"  placeholder="Website URL" class="url-input input">
-        <button class="enter-button" disabled>Enter</button>
+        <form>
+          <input 
+            type="text" 
+            name="Title" 
+            placeholder="Website title" 
+            class="title-input input">
+          <input 
+            type="address"  
+            placeholder="Website URL" 
+            class="url-input input">
+          <button class="enter-button" disabled>Enter</button>
+          <button class="clear-button" disabled>Clear Read Bookmarks</button>
+        </form>
         <h5 class="number-of-links">Number of Links: 0</h5>
-        <h5 class="number-of-links">Number of Links Read: 0</h5>
+        <h5 class="number-of-links-read">Number of Links Read: 0</h5>
       </section>
-        
-      <section class="bookmark-section">
-        <!-- <article id="bookmarks" class="article"> -->
-      <!--     <h3 class="website-title"></h3>
-          <h6 class="website-url"></h6>
-        
-          <p class="read">Read</p>
-          <p class="delete">Delete</p> -->
-        </article>
-      </section>
+      <section class="bookmark-section"></section>
     </div>
   </body>
   <script src="script.js" type="text/javascript"></script>
