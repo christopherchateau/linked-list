@@ -3,19 +3,26 @@ var urlInput = document.querySelector('.url-input');
 var enterButton = document.querySelector('.enter-button');
 var clearButton = document.querySelector('.clear-button');
 var bookmarks = document.querySelector('.bookmark-section');
+
 var numOfLinks = document.querySelector('.number-of-links');
 var numOfLinksRead = document.querySelector('.number-of-links-read');
+var numOfLinksUnread = document.querySelector('.number-of-links-unread');
+
 var cardCounter = 0;
 var readCounter = 0;
+var unreadCounter = 0;
 
 enterButton.addEventListener('click', createNewBookmark);
 clearButton.addEventListener('click', clearReadBookmarks);
 document.addEventListener('keyup', enterButtonToggleChecker);
 
-
 function createNewBookmark(e) {
 	e.preventDefault();
 
+	if (verifyUrl()) {
+		alert('Not a valid URL!');
+		return;
+	}
 	var newCard = document.createElement('article');
 	var newCardTitle = document.createElement('h2');
 	var newCardUrl = document.createElement('h4');
@@ -25,11 +32,6 @@ function createNewBookmark(e) {
 	var titleNode = document.createTextNode(titleInput.value);
 	var urlNode = document.createTextNode(urlInput.value);
 
-	if (verifyUrl()) {
-		alert('Not a valid URL!');
-		return;
-	}
-
 	createBookmarkTemplate();
 	addClassToButtons();
 	noInputAlert();
@@ -38,11 +40,11 @@ function createNewBookmark(e) {
 
 	cardCounter++;
 	updateLinkCount();
+	updateUnreadCount();
 	bookmarks.insertBefore(newCard, prevCard);
 
 	deleteButton.addEventListener('click', deleteBookmark);
 	readButton.addEventListener('click', toggleReadTag);
-
 
 	function createBookmarkTemplate() {
 		readButton.innerText = 'Read';
@@ -71,6 +73,7 @@ function createNewBookmark(e) {
 		}
 		updateLinkCount();
 		updateReadCount();
+		updateUnreadCount();
 	}
 
 	function toggleReadTag() {
@@ -82,6 +85,7 @@ function createNewBookmark(e) {
 			readCounter--;
 		}
 		updateReadCount();
+		updateUnreadCount();
 	}
 }
 
@@ -100,6 +104,7 @@ function clearReadBookmarks(e) {
 	clearButton.disabled = true;
 	updateLinkCount();
 	updateReadCount();
+	updateUnreadCount();
 }
 
 function enterButtonToggleChecker() {
@@ -122,21 +127,16 @@ function noInputAlert() {
 }
 
 function updateLinkCount() {
-	numOfLinks.innerText = `Number of Links: ${cardCounter}`;
-
-	bookmarksLabel = document.querySelector('.bookmarks-label');
-
-	if (cardCounter > 0) {
-		bookmarksLabel.innerHTML = "";
-	} else{
-		bookmarksLabel.innerHTML = "Add Bookmarks";
-	}
-	console.log("Bookmarks label:" + bookmarksLabel.innerHTML);
+	numOfLinks.innerText = `Links: ${cardCounter}`;
 }
 
+function updateUnreadCount() {
+	unreadCounter = cardCounter - readCounter;
+	numOfLinksUnread.innerText = `Unread: ${unreadCounter}`;
+}
 
 function updateReadCount() {
-	numOfLinksRead.innerText = `Number of Links Read: ${readCounter}`;
+	numOfLinksRead.innerText = `Read: ${readCounter}`;
 	if (readCounter > 0) {
 		clearButton.disabled = false;
 	} else {
