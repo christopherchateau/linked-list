@@ -10,21 +10,10 @@ body {
   height: 100%;
 }
 
-aside{
-  padding-top: 1em;
-}
-
 h1 {
   font-size: 5rem;
-  margin: 50px 2rem 0 2rem;
+  margin: 7rem 2rem 0 2rem;
   text-align: center;
-}
-  
-h1.bookmarks-label {
-  margin: 25% 0px;
-  text-align: center;
-  color: white;
-  padding-top: 0em;
 }
 
 h2 {
@@ -48,9 +37,8 @@ h4 {
 }
 
 h5 {
-  font-size: 1.5rem;
-  margin-top: 1rem;
-  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 img {
@@ -78,6 +66,15 @@ article {
   margin: 1rem auto 2rem auto;
   width: 95%;
   overflow-y: hidden;
+}
+
+aside{
+  display: grid;
+  grid-auto-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+  padding-top: 1em;
+  text-align: center;
+  width: 90%;
 }
 
 .wrapper {
@@ -141,12 +138,24 @@ article {
   color: red;
 }
 
+.number-of-links {
+  grid-column: 1;
+}
+
+.number-of-links-read {
+  grid-column: 2;
+}
+
+.number-of-links-unread {
+  grid-column: 3;
+}
+
 ::placeholder {
   font-size: 2rem;
   padding-left: .3rem;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
 
   h1 {
     font-size: 2.8rem;
@@ -187,6 +196,7 @@ article {
     grid-row: 2;
     height: 50vh;
   }
+
   .clear-button, 
   .enter-button {
     font-size: 1.2rem;
@@ -194,11 +204,6 @@ article {
   }
 }
 
-@media only screen and (min-width: 768px){
-  h1.bookmarks-label{
-    font-size: 3em;
-  }
-}
 @media (max-width: 450px) {
 
   h1 {
@@ -239,6 +244,18 @@ article {
   .enter-button {
     height: 1.8rem;
     font-size: 1rem;
+  }
+
+  .wrapper {
+    display: block;
+  }
+
+  .input-section {
+    height: 35vh;
+  }
+
+  .bookmark-section {
+    height: 65vh;
   }
 
   ::placeholder {
