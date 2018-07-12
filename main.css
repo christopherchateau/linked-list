@@ -64,11 +64,11 @@ article {
   display: block;
   height: 13rem;
   margin: 1rem auto 2rem auto;
-  width: 95%;
   overflow-y: hidden;
+  width: 95%;
 }
 
-aside{
+aside {
   display: grid;
   grid-auto-columns: 1fr 1fr 1fr;
   margin: 0 auto;
@@ -87,7 +87,7 @@ aside{
   color: #FFFFFF;
   grid-column: 1;
   height: 100vh;
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .bookmark-section {
@@ -202,14 +202,15 @@ aside{
     font-size: 1.2rem;
     margin-top: 1rem;
   }
+
 }
 
 @media (max-width: 450px) {
 
   h1 {
     font-size: 2rem;
-    padding-top: .5rem;
     margin-bottom: .5rem;
+    padding-top: .5rem;
   }
 
   h2 {
@@ -242,8 +243,8 @@ aside{
 
   .clear-button, 
   .enter-button {
-    height: 1.8rem;
     font-size: 1rem;
+    height: 1.8rem;
   }
 
   .wrapper {
