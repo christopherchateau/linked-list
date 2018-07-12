@@ -4,13 +4,15 @@
   padding: 0;
 }
 
+html,
 body {
   font-family: 'Open Sans', sans-serif;
+  height: 100%;
 }
 
 h1 {
   font-size: 5rem;
-  margin: 15% 2rem 0 2rem;
+  margin: 7rem 2rem 0 2rem;
   text-align: center;
 }
 
@@ -35,9 +37,8 @@ h4 {
 }
 
 h5 {
-  font-size: 1.5rem;
-  margin-top: 1rem;
-  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 img {
@@ -63,7 +64,17 @@ article {
   display: block;
   height: 13rem;
   margin: 1rem auto 2rem auto;
+  overflow-y: hidden;
   width: 95%;
+}
+
+aside {
+  display: grid;
+  grid-auto-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+  padding-top: 1em;
+  text-align: center;
+  width: 90%;
 }
 
 .wrapper {
@@ -76,14 +87,14 @@ article {
   color: #FFFFFF;
   grid-column: 1;
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .bookmark-section {
   background-color: #CFD8DC;
   grid-column: 2;
   height: 100vh;
-  overflow: scroll;
+  overflow-y: scroll;
   padding: 1em;
 }
 
@@ -127,12 +138,24 @@ article {
   color: red;
 }
 
+.number-of-links {
+  grid-column: 1;
+}
+
+.number-of-links-read {
+  grid-column: 2;
+}
+
+.number-of-links-unread {
+  grid-column: 3;
+}
+
 ::placeholder {
   font-size: 2rem;
   padding-left: .3rem;
 }
 
-@media (max-width: 635px) {
+@media (max-width: 800px) {
 
   h1 {
     font-size: 2.8rem;
@@ -141,9 +164,8 @@ article {
   }
 
   h5 {
-    font-size: 1rem;
-    margin-left: 2rem;
-    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    margin-top: .5rem;
   }
 
   img {
@@ -166,6 +188,7 @@ article {
     grid-column: 1;
     grid-row: 1;
     height: 50vh;
+    overflow: scroll;
   }
 
   .bookmark-section {
@@ -173,9 +196,71 @@ article {
     grid-row: 2;
     height: 50vh;
   }
+
+  .clear-button, 
+  .enter-button {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
+
+}
+
+@media (max-width: 450px) {
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+    padding-top: .5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
+
+  h5 {
+    font-size: .8rem;
+    margin-left: 0;
+    margin-top: .5rem;
+  }
+
+  img {
+    height: 2rem;
+    top: 5px;
+  }
+
+  article {
+    height: 11rem;
+  }
+
+  input {
+    font-size: 1.5rem;
+    height: 1.8rem;
+  }
+
   .clear-button, 
   .enter-button {
     font-size: 1rem;
-    margin-top: 1rem;
+    height: 1.8rem;
   }
+
+  .wrapper {
+    display: block;
+  }
+
+  .input-section {
+    height: 35vh;
+  }
+
+  .bookmark-section {
+    height: 65vh;
+  }
+
+  ::placeholder {
+    font-size: 1.5rem;
+  }
+
 }

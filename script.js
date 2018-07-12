@@ -3,14 +3,26 @@ var urlInput = document.querySelector('.url-input');
 var enterButton = document.querySelector('.enter-button');
 var clearButton = document.querySelector('.clear-button');
 var bookmarks = document.querySelector('.bookmark-section');
+
 var numOfLinks = document.querySelector('.number-of-links');
 var numOfLinksRead = document.querySelector('.number-of-links-read');
+var numOfLinksUnread = document.querySelector('.number-of-links-unread');
+
 var cardCounter = 0;
 var readCounter = 0;
+var unreadCounter = 0;
 
-enterButton.addEventListener('click', function(e) {
+enterButton.addEventListener('click', createNewBookmark);
+clearButton.addEventListener('click', clearReadBookmarks);
+document.addEventListener('keyup', enterButtonToggleChecker);
+
+function createNewBookmark(e) {
 	e.preventDefault();
 
+	if (verifyUrl()) {
+		alert('Not a valid URL!');
+		return;
+	}
 	var newCard = document.createElement('article');
 	var newCardTitle = document.createElement('h2');
 	var newCardUrl = document.createElement('h4');
@@ -20,19 +32,21 @@ enterButton.addEventListener('click', function(e) {
 	var titleNode = document.createTextNode(titleInput.value);
 	var urlNode = document.createTextNode(urlInput.value);
 
-	cardCounter++;
-	emptyFieldAlert();
-	createNewBookmark();
-	addClasstoButtons();
+	createBookmarkTemplate();
+	addClassToButtons();
+	noInputAlert();
+	clearInputFields();
+	disableEnterButton();
 
+	cardCounter++;
+	updateLinkCount();
+	updateUnreadCount();
 	bookmarks.insertBefore(newCard, prevCard);
 
 	deleteButton.addEventListener('click', deleteBookmark);
 	readButton.addEventListener('click', toggleReadTag);
 
-	updateLinkCount();
-
-	function createNewBookmark() {
+	function createBookmarkTemplate() {
 		readButton.innerText = 'Read';
 		deleteButton.innerText = 'Delete';
 
@@ -45,7 +59,7 @@ enterButton.addEventListener('click', function(e) {
 		newCard.appendChild(deleteButton);
 	}
 
-	function addClasstoButtons() {
+	function addClassToButtons() {
 		readButton.classList.add('read-button');
 		deleteButton.classList.add('delete-button');
 	}
@@ -59,6 +73,7 @@ enterButton.addEventListener('click', function(e) {
 		}
 		updateLinkCount();
 		updateReadCount();
+		updateUnreadCount();
 	}
 
 	function toggleReadTag() {
@@ -70,31 +85,41 @@ enterButton.addEventListener('click', function(e) {
 			readCounter--;
 		}
 		updateReadCount();
+		updateUnreadCount();
 	}
-});
+}
 
-clearButton.addEventListener('click', function(e) {
+function clearReadBookmarks(e) {
 	e.preventDefault();
-	cardCounter = 0;
+	cardCounter -= readCounter;
 	readCounter = 0;
 	
-	var allCards = document.querySelector('.bookmark-section');
-	allCards.innerHTML = '';
-	
+	allCards = document.querySelectorAll('article');
+
+	for (var i = 0; i < allCards.length; i++) {
+		if (allCards[i].innerHTML.match(' read')) {
+			allCards[i].parentNode.removeChild(allCards[i]);
+		}
+	}
 	clearButton.disabled = true;
 	updateLinkCount();
 	updateReadCount();
-});	
+	updateUnreadCount();
+}
 
-document.addEventListener('keyup', function() {
+function enterButtonToggleChecker() {
 	if (titleInput.value && urlInput.value){
 		enterButton.disabled = false;
 	} else {
 		enterButton.disabled = true;
 	}
-});
+}
 
-function emptyFieldAlert() {
+function verifyUrl() {
+	return !urlInput.value.match(/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/i)
+}
+
+function noInputAlert() {
 	if (titleInput.value === '' || urlInput.value === '') {
 		alert('Please fill out both fields!');
 		return;
@@ -102,14 +127,28 @@ function emptyFieldAlert() {
 }
 
 function updateLinkCount() {
-	numOfLinks.innerText = `Number of Links: ${cardCounter}`;
-	if (cardCounter > 0) {
+	numOfLinks.innerText = `Links: ${cardCounter}`;
+}
+
+function updateUnreadCount() {
+	unreadCounter = cardCounter - readCounter;
+	numOfLinksUnread.innerText = `Unread: ${unreadCounter}`;
+}
+
+function updateReadCount() {
+	numOfLinksRead.innerText = `Read: ${readCounter}`;
+	if (readCounter > 0) {
 		clearButton.disabled = false;
 	} else {
 		clearButton.disabled = true;
 	}
 }
 
-function updateReadCount() {
-	numOfLinksRead.innerText = `Number of Links Read: ${readCounter}`;
+function clearInputFields() {
+	titleInput.value = '';
+	urlInput.value = ''
+}
+
+function disableEnterButton() {
+	enterButton.disabled = true;
 }

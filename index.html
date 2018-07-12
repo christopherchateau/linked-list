@@ -5,29 +5,35 @@
     <link href="main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,800" 
           rel="stylesheet">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
   </head>
   <body>
     <div class="wrapper">
       <section class="input-section">
         <h1>
-          Linked 
-          <img src="linked-list-logo.svg"/>
-          List
+          Linked<img src="linked-list-logo.svg"/>List
         </h1>
-        <input 
-          type="text" 
-          name="Title" 
-          placeholder="Website title" 
-          class="title-input input">
-        <input 
-          type="address"  
-          placeholder="Website URL" 
-          class="url-input input">
-        <button class="enter-button" disabled>Enter</button>
-        <button class="clear-button" disabled>Clear Read Bookmarks</button>
-        <h5 class="number-of-links">Number of Links: 0</h5>
-        <h5 class="number-of-links-read">Number of Links Read: 0</h5>
+        <form>
+          <input 
+            type="text" 
+            aria-label="Enter website name"
+            placeholder="Website title" 
+            class="title-input input"
+          >
+          <input 
+            type="address"  
+            aria-label="Enter website URL"
+            placeholder="Website URL" 
+            class="url-input input"
+          >
+          <button class="enter-button" disabled>Enter</button>
+          <button class="clear-button" disabled>Clear Read Bookmarks</button>
+        </form>
+        <aside>
+          <h5 class="number-of-links">Links: 0</h5>
+          <h5 class="number-of-links-read">Read: 0</h5>
+          <h5 class="number-of-links-unread">Unread: 0</h5>
+        </aside>
       </section>
       <section class="bookmark-section"></section>
     </div>
